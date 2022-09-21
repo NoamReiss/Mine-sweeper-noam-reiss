@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+}
+
+
+
+table {
+    table-layout: fixed;
+    column-width: 50%;
+    width: 50%;
+    margin: auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    border-width: 3px;
+border-color: black;
+    background-color: #c4c4c4;
+    box-shadow: 20px;
+}
+tr {
+    border-color: black;
+   
+}
+td {
+   border-width: 3px;  
+}
+
+.cell {
+    
+    
+    background-color: #7e7e7e;
+    cursor: pointer;
+    text-align: center;
+    color: #eeeeee;
+    border-color: rgb(0, 0, 0);
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+ .hidden {
+    display: none;
+ }
+
+
+.marked {
+    background-color: blue;
+}
