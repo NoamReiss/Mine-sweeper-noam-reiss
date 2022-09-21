@@ -32,18 +32,13 @@ function createboard(size) {
             const cell = {
                 minesAroundCount: 0,
                 isShown: false,
-                isMine: false,
+                isMine: (Math.random() > 0.8),
                 isMarked: false
-
             }
 
             board[i][j] = cell
-
         }
     }
-    board[0][0].isMine = true
-    board[3][0].isMine = true
-
 
     return setMinesNegsCount(board)
 }
@@ -58,7 +53,7 @@ function renderBoard(board, selector) {
 
             const cell = board[i][j]
 
-            const className = `cell-${i}-${j}` 
+            const className = `cell-${i}-${j}`
             var classDivName = ''
             if (!cell.isShown) classDivName += ' hidden'
             var cellContent = cell.isMine ? MINE : cell.minesAroundCount
@@ -78,18 +73,25 @@ function renderBoard(board, selector) {
 
 
 function cellClicked(elCell, i, j) {
-     var cell = gBoard[i][j]
+    var cell = gBoard[i][j]
 
-cell.isShown = true
-var div = document.querySelector(`.cell-${i}-${j} div` )
-div.classList.remove('hidden')
+    cell.isShown = true
+    var div = document.querySelector(`.cell-${i}-${j} div`)
+    div.classList.remove('hidden')
 
-console.log('nn',div);
+    console.log('nn', div);
 
     console.log('elcell', elCell)
     console.log('cell', cell);
 
 
+
+}
+
+
+function randomPos(board, numOfPos) {
+  var poss = []
+  var Ipos = createNumsArr(0,board.length )
 
 }
 

@@ -1,12 +1,31 @@
 'use strict'
+function drawNum() {
+
+    var idx = getRandomInt(0, gNums.length - 1)
+    var num = gNums.splice(idx, 1)
+    return num[0]
+
+}
 
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min)
+}
 
 
+function createNumsArr(min, max) {
+    var nums = []
+    for (var i = min; i <= max; i++) {
+        nums.push(i)
+    }
+    return nums
+}
 
 
 function renderCell(location, value) {
-    // Select the elCell and set the value
+
     const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
     elCell.innerHTML = value
 }
