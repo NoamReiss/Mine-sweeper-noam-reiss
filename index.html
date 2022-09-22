@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,28 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Mine sweeper</title>
 </head>
-<body onload="onInitGame()">
-    <div class="header"><h1 class="title">Mine sweeper</h1>
-    </div> 
-    <h2> Number of mines: <span class="mine-num"></span></h2>
 
+<body onload="onInitGame()">
+    <div class="header">
+        <h1 class="title">Mine sweeper</h1>
+    </div>
+    <div class="wrapper">
+        <div class="number"> Number of mines: <span class="mine-num"></span></div>
+        <div class="game-time">Game Time:<span class="timer"></span></div>
+        <div class="lives"></div>
+    </div>
+    <div class="wrapper">
     <button class="easy" onclick="gameLevel(4 , 5) , onInitGame()">easy</button>
     <button class="medium" onclick="gameLevel(10, 6), onInitGame()">medium</button>
     <button class="hard" onclick="gameLevel(15, 7), onInitGame()">hard</button>
+    </div>
     <button class="reset" onclick="onInitGame()">😊</button>
-    <div class="board"></div>
-    
+
+    <div oncontextmenu="return false;" class="board"></div>
+
 
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

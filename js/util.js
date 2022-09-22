@@ -2,6 +2,22 @@
 
 
 
+function startTimer() {
+    gStartTime = Date.now()
+    gTimeInterval = setInterval(updateTimer, 100)
+
+}
+
+function updateTimer() {
+    var diff = Date.now() - gStartTime
+    var inSeconds = (diff / 1000).toFixed(3)
+    document.querySelector('.timer').innerText = inSeconds
+}
+
+function stopTimer() {
+    clearInterval(gTimeInterval)
+}
+
 
 function drawNum(Nums) {
 
