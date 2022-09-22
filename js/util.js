@@ -1,19 +1,15 @@
 'use strict'
-function drawNum() {
 
-    var idx = getRandomInt(0, gNums.length - 1)
-    var num = gNums.splice(idx, 1)
+
+
+
+function drawNum(Nums) {
+
+    var idx = getRandomInt(0, Nums.length - 1)
+    var num = Nums.splice(idx, 1)
     return num[0]
 
 }
-
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min)
-}
-
 
 function createNumsArr(min, max) {
     var nums = []
@@ -22,7 +18,11 @@ function createNumsArr(min, max) {
     }
     return nums
 }
-
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min)
+}
 
 function renderCell(location, value) {
 

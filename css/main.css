@@ -3,6 +3,35 @@ h1 {
 }
 
 
+button {
+    background-color: #1f1524;
+    border-radius: 4px;
+    border: 0;
+    box-shadow: rgba(8, 43, 90, 0.5) 0 -1px 3px 0 inset, rgba(0, 44, 97, .1) 0 3px 6px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inherit;
+    font-family: Baskerville, Times, 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: auto;
+    margin-bottom: 20px;
+    min-height: 56px;
+    min-width: 120px; 
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    
+    transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+
+button:hover {
+    background-color: #3a364b;
+    transform: translateY(-2px);
+}
 
 table {
     table-layout: fixed;
@@ -13,7 +42,7 @@ table {
     font-family: sans-serif;
     border-width: 3px;
 border-color: black;
-    background-color: #c4c4c4;
+    background-color: #555050;
     box-shadow: 20px;
 }
 tr {
@@ -23,21 +52,15 @@ tr {
 td {
    border-width: 3px;  
 }
-
 .cell {
-    
-    
-    background-color: #7e7e7e;
-    cursor: pointer;
+    width: 40px;
+    height: 40px;
     text-align: center;
-    color: #eeeeee;
-    border-color: rgb(0, 0, 0);
-    font-family: "Google Sans", Roboto, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-
     cursor: pointer;
 }
+
+
+
  .hidden {
     display: none;
  }
