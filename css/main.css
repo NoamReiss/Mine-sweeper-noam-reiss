@@ -23,26 +23,27 @@ h1 {
 
 .game-time {
 
-    margin: auto;
+    height: 60px;
+    line-height: 60px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 4px;
     background-color: #1f1524;
-    width: 150px;
+    width: 220px;
     text-align: center;
     color: #fff;
     font-family: Baskerville, Times, 'Times New Roman', serif;
     font-size: 22px;
-    font-weight: 700;
 
 }
 
 .number {
-    margin: auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 4px;
+    height: 60px;
     background-color: #1f1524;
     width: 150px;
     text-align: center;
+    line-height: 30px;
     color: #fff;
     font-family: Baskerville, Times, 'Times New Roman', serif;
     font-size: 22px;
@@ -62,7 +63,6 @@ button {
     font-size: 22px;
     font-weight: 700;
     line-height: 24px;
-    margin: auto;
     margin-bottom: 20px;
     min-height: 56px;
     min-width: 120px;
@@ -81,10 +81,11 @@ button:hover {
 
 .reset {
     display: inherit;
+    margin: auto;
+    margin-bottom: 7px;
 }
 
 .lives {
-    margin: auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 4px;
     background-color: #1f1524;
@@ -94,7 +95,8 @@ button:hover {
     font-family: Baskerville, Times, 'Times New Roman', serif;
     font-size: 22px;
     font-weight: 700;
-
+    line-height: 60px;
+    height: 60px;
 
 
 }
@@ -104,6 +106,8 @@ button:hover {
     padding: 20px;
     margin-right: 1px;
     margin-left: 1px;
+    justify-content: space-evenly;
+  align-items: center;
 }
 
 
@@ -135,8 +139,17 @@ td {
     height: 40px;
     text-align: center;
     cursor: pointer;
+    background-color: #555050;
 }
 
+.help {
+    display: flex;
+    padding: 20px;
+    margin-right: 1px;
+    margin-left: 1px;
+    justify-content: space-evenly;
+  align-items: center;
+}
 
 
 .hidden {
@@ -147,3 +160,7 @@ td {
 .marked::after {
     content: "🔻";
 }
+
+.open-cell {
+    background-color: #c1abce;
+} 

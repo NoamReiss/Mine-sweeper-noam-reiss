@@ -19,15 +19,22 @@
         <div class="lives"></div>
     </div>
     <div class="wrapper">
-    <button class="easy" onclick="gameLevel(4 , 5) , onInitGame()">easy</button>
-    <button class="medium" onclick="gameLevel(10, 6), onInitGame()">medium</button>
-    <button class="hard" onclick="gameLevel(15, 7), onInitGame()">hard</button>
+        <button class="easy" onclick="gameLevel(2 , 4), onInitGame()">Easy</button>
+        <button class="medium" onclick="gameLevel(14, 8), onInitGame()">Medium</button>
+        <button class="hard" onclick="gameLevel(32, 12), onInitGame()">Expert</button>
     </div>
     <button class="reset" onclick="onInitGame()">😊</button>
 
     <div oncontextmenu="return false;" class="board"></div>
+    <div class="help">
+        <button class="hint1" onclick="onHintClick(this)">💡</button>
+        <button class="hint2" onclick="onHintClick(this)">💡</button>
+        <button class="hint3" onclick="onHintClick(this)">💡</button>
+        <button class="Safe" onclick="onSafeClick(this)">Safe clicks available: <span></span></button>
+      
+      
 
-
+    </div>
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
 </body>

@@ -19,6 +19,76 @@ function stopTimer() {
 }
 
 
+
+function expandShown(board, elCell, rowIdx, colIdx) {
+
+
+    for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
+        if (i < 0 || i >= board.length) continue
+
+        for (var j = colIdx - 1; j <= colIdx + 1; j++) {
+            if (j < 0 || j >= board[0].length) continue
+            if (i === rowIdx && j === colIdx) continue
+            var currCell = board[i][j]
+            var elCurrCell = document.querySelector(`.cell-${i}-${j}`)
+
+            if (currCell.isMine) continue
+            cellClicked(elCurrCell, i, j)
+
+        }
+    }
+}
+
+
+
+function setMinesNegsCount(board) {
+
+    for (var i = 0; i < board.length; i++) {
+        for (var j = 0; j < board.length; j++) {
+            var currCell = board[i][j]
+            currCell.minesAroundCount = minesAroundCount(board, i, j)
+
+
+        }
+    }
+    return board
+
+}
+
+function randomPos(size, numOfPos, idx1, idx2) {
+    var poss = []
+    var mineCount = numOfPos + 1
+    while (mineCount > 1) {
+        var pos1 = getRandomInt(0, size)
+        var pos2 = getRandomInt(0, size)
+
+        var pos = { i: pos1, j: pos2 }
+
+        if (!isPosIncludes(poss, pos) && (pos.i !== idx1 && pos.j !== idx2)) {
+         
+
+            poss.push(pos)
+            mineCount--
+        }
+
+    }
+   
+    return poss
+}
+
+
+function isPosIncludes(arr, obj) {
+    for (var x = 0; x < arr.length; x++) {
+        var currPos = arr[x]
+        if (currPos.i === obj.i && currPos.j === obj.j) return true
+
+
+    }
+    return false
+}
+
+
+
 function drawNum(Nums) {
 
     var idx = getRandomInt(0, Nums.length - 1)
@@ -94,24 +164,39 @@ function findBestPos(board) {
     }
     return bestPos
 }
+function findSafePos(board) {
+    bestPoss = []
+
+    for (var i = 0; i < board.length; i++) {
+        for (var j = 0; j < board.length; j++) {
+            currCell = board[i][j]
+            if (currCell.isMine) continue
+            bestPoss.push(currCell)
+
+        }
+    }
+   return  drawNum(poss)
+}
+
+
 
 
 function minesAroundCount(board, rowIdx, colIdx) {
     var count = 0
     for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
-    if (i < 0 || i >= board.length) continue
-    for (var j = colIdx - 1; j <= colIdx + 1; j++) {
-    if (i === rowIdx && j === colIdx) continue
-    if (j < 0 || j >= board[0].length) continue
-    var currCell = board[i][j]
-    if (currCell.isMine) count++
-    }
+        if (i < 0 || i >= board.length) continue
+        for (var j = colIdx - 1; j <= colIdx + 1; j++) {
+            if (i === rowIdx && j === colIdx) continue
+            if (j < 0 || j >= board[0].length) continue
+            var currCell = board[i][j]
+            if (currCell.isMine) count++
+        }
     }
     return count
-    }
+}
 
 
 function playSound() {
-  var dead = new Audio("sounds/dead.mp3")
-  dead.play()
+    var dead = new Audio("sounds/dead.mp3")
+    dead.play()
 }
