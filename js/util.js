@@ -10,7 +10,7 @@ function startTimer() {
 
 function updateTimer() {
     var diff = Date.now() - gStartTime
-    var inSeconds = (diff / 1000).toFixed(3)
+    var inSeconds = (diff / 1000).toFixed(1)
     document.querySelector('.timer').innerText = inSeconds
 }
 
@@ -34,9 +34,10 @@ function expandShown(board, elCell, rowIdx, colIdx) {
 
             if (currCell.isMine) continue
             cellClicked(elCurrCell, i, j)
+            // if(currCell.minesAroundCount === 0)expandShown(gBoard, elCurrCell , i ,j)
 
         }
-    }
+    }renderBoard(gBoard, '.board')
 }
 
 
@@ -165,17 +166,18 @@ function findBestPos(board) {
     return bestPos
 }
 function findSafePos(board) {
-    bestPoss = []
+  var bestPoss = []
 
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board.length; j++) {
-            currCell = board[i][j]
+          var currCell = board[i][j]
             if (currCell.isMine) continue
             bestPoss.push(currCell)
 
         }
     }
-   return  drawNum(poss)
+    
+   return  drawNum(bestPoss)
 }
 
 

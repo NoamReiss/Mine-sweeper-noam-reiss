@@ -8,7 +8,9 @@ const LIFE = '💗'
 const EMPTY = ''
 const gLevel = {
     SIZE: 4,
-    MINES: 2
+    MINES: 2,
+    LIVES: 1
+
 }
 var gMinePos
 var gBoard
@@ -19,28 +21,33 @@ const gGame = {
     shownCount: 0,
     markedCount: 0,
     secsPassed: 0,
-    lives: 3,
-    mineClickedCount: 0
+    lives: 1,
+    mineClickedCount: 0,
+    safeClickAvailible: 3
 }
-function gameLevel(num1, num2) {
+function gameLevel(mines, size, lives) {
 
-    gLevel.MINES = num1
-    gLevel.SIZE = num2
+    gLevel.MINES = mines
+    gLevel.SIZE = size
+    gLevel.LIVES = lives
     onInitGame()
 }
 
 function onInitGame() {
     stopTimer()
-
+    document.querySelector('.reset').innerText = '😊'
     gGame.isOn = false
     gGame.shownCount = 0
     gGame.markedCount = 0
     gGame.secsPassed = 0
-    gGame.lives = 3
+    gGame.lives = gLevel.LIVES
+   gGame.mineClickedCount = 0
+   gGame.safeClickAvailible = 3
     gBoard = createboard(gLevel.SIZE)
     renderBoard(gBoard, '.board')
     document.querySelector('.mine-num').innerText = gLevel.MINES
     updateLives()
+    document.querySelector('.safe span').innerText = gGame.safeClickAvailible
 
 }
 
@@ -53,8 +60,7 @@ function gameOn(elCell, i, j) {
     cellClicked(elCell, i, j)
     renderBoard(gBoard, '.board')
 
-    // renderBoard(gBoard)
-    // console.log(elCell);
+   
 }
 
 
@@ -226,7 +232,7 @@ function checkVictory() {
 
 function checkLoss() {
 
-    if (gGame.lives === gGame.mineClickedCount ) {
+    if (gGame.lives === 0 ) {
         document.querySelector('.reset').innerText = '😭'
         stopTimer()
         for (let i = 0; i < gBoard.length; i++) {
@@ -251,11 +257,13 @@ function checkLoss() {
 
 // }
 
-// function onSafeClick(elButton) {
-
-//     findSafePos(gBoard)
-
-// }
+function onSafeClick(elButton) {
+    if(gGame.safeClickAvailible === 0 )return
+    gGame.safeClickAvailible--
+    document.querySelector('.safe span').innerText = gGame.safeClickAvailible
+   console.log(findSafePos(gBoard));
+    
+}
 
 
 
